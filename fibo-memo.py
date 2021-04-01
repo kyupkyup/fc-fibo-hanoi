@@ -9,10 +9,11 @@ def fibo(num, memo):
     elif memo[num] != 0:
         return memo[num]
     else:
-        return fibo(num-2, memo) + fibo(num-1, memo)
+        memo[num] = fibo(num-2, memo) + fibo(num-1, memo)
+        return memo[num]
 
 
 if __name__ == "__main__":
-    x = 10
+    x = 400
     memo = [0] * (x+1)
     print(fibo(x, memo))
